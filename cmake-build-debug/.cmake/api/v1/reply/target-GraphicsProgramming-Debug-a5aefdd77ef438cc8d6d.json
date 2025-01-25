@@ -97,19 +97,19 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/libs/glfw/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/libs/glfw/include"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/libs/glew/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/libs/glew/include"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/third_party/SOIL2_1.31/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/third_party/SOIL2_1.31/include"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/third_party/glm"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/third_party/glm"
 				}
 			],
 			"language" : "CXX",
@@ -137,19 +137,19 @@
 			[
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/libs/glfw/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/libs/glfw/include"
 				},
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/libs/glew/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/libs/glew/include"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/third_party/SOIL2_1.31/include"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/third_party/SOIL2_1.31/include"
 				},
 				{
 					"backtrace" : 9,
-					"path" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/third_party/glm"
+					"path" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/third_party/glm"
 				}
 			],
 			"language" : "C",
@@ -184,12 +184,12 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LC:\\Users\\EzWorkzz\\CLionProjects\\GraphicsProgramming\\libs\\glfw\\lib",
+				"fragment" : "-LC:\\Users\\EzWorkzz\\CLionProjects\\BaseGraphicsProgrammingSetup\\libs\\glfw\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-LC:\\Users\\EzWorkzz\\CLionProjects\\GraphicsProgramming\\libs\\glew\\lib",
+				"fragment" : "-LC:\\Users\\EzWorkzz\\CLionProjects\\BaseGraphicsProgrammingSetup\\libs\\glew\\lib",
 				"role" : "libraryPath"
 			},
 			{

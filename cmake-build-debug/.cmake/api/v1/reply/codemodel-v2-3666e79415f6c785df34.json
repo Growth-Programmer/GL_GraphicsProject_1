@@ -41,7 +41,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "GraphicsProgramming::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-GraphicsProgramming-Debug-6e45cee6e42328f245b5.json",
+					"jsonFile" : "target-GraphicsProgramming-Debug-a5aefdd77ef438cc8d6d.json",
 					"name" : "GraphicsProgramming",
 					"projectIndex" : 0
 				},
@@ -58,8 +58,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/cmake-build-debug",
-		"source" : "C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming"
+		"build" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug",
+		"source" : "C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup"
 	},
 	"version" : 
 	{

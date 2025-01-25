@@ -1,4 +1,4 @@
-C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/cmake-build-debug/CMakeFiles/GraphicsProgramming.dir
-C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/cmake-build-debug/CMakeFiles/copy_resources.dir
-C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/EzWorkzz/CLionProjects/GraphicsProgramming/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/CMakeFiles/GraphicsProgramming.dir
+C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/CMakeFiles/copy_resources.dir
+C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/CMakeFiles/rebuild_cache.dir
