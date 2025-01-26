@@ -66,7 +66,8 @@ include CMakeFiles/copy_resources.dir/compiler_depend.make
 include CMakeFiles/copy_resources.dir/progress.make
 
 CMakeFiles/copy_resources:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\EzWorkzz\CLionProjects\BaseGraphicsProgrammingSetup\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying resource files to the build directory"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\EzWorkzz\CLionProjects\BaseGraphicsProgrammingSetup\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying resource files to the build directory and removing outdated files"
+	"C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E remove_directory C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/res
 	"C:\Program Files\JetBrains\CLion 2023.3.4\bin\cmake\win\x64\bin\cmake.exe" -E copy_directory C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/res C:/Users/EzWorkzz/CLionProjects/BaseGraphicsProgrammingSetup/cmake-build-debug/res
 
 copy_resources: CMakeFiles/copy_resources

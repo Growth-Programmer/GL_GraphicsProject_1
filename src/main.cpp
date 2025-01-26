@@ -67,8 +67,8 @@ GLuint createShaderProgram(){
     GLint fragCompiled;
     GLint linked;
 
-    std::string vertShaderString = readShaderSource("res/basic_point/vertShader.glsl");
-    std::string fragShaderString = readShaderSource("res/basic_point/fragShader.glsl");
+    std::string vertShaderString = readShaderSource("res/shaders/basic_point/vertShader.glsl");
+    std::string fragShaderString = readShaderSource("res/shaders/basic_point/fragShader.glsl");
 
     const char* vshaderSource = vertShaderString.c_str();
     const char* fshaderSource = fragShaderString.c_str();
@@ -102,9 +102,9 @@ GLuint createShaderProgram(){
     glAttachShader(vfProgram, vShader);
     glAttachShader(vfProgram, fShader);
     glLinkProgram(vfProgram);
-
     checkOpenGLError();
-    glGetShaderiv(vfProgram, GL_LINK_STATUS, &linked);
+
+    glGetProgramiv(vfProgram, GL_LINK_STATUS, &linked);
     if (linked != 1){
         std::cout << "Shader Program Link Step Failed" << std::endl;
         printProgramLog(vfProgram);
@@ -121,8 +121,7 @@ void display(GLFWwindow* window, double currentTime){
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.5,0.5,0.5,1.0);
     glUseProgram(renderingProgram);
-    glPointSize(30.0f);
-    glDrawArrays(GL_POINTS, 0, 1);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
 int main(){

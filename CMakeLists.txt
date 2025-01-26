@@ -25,14 +25,16 @@ set(SOURCE_FILES
 )
 add_executable(GraphicsProgramming ${HEADER_FILES} ${SOURCE_FILES})
 
-# Create a custom target that always runs so that resources are always updated on running
+# Add a custom command that will depend on changes in the res folder
+file(GLOB_RECURSE RESOURCES "${CMAKE_SOURCE_DIR}/res/*")
+
+# Ensure to copy the resources and update the build directory, removing stale files
 add_custom_target(copy_resources ALL
-        COMMAND ${CMAKE_COMMAND} -E copy_directory
-        ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/res
-        COMMENT "Copying resource files to the build directory"
+        COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_BINARY_DIR}/res  # Remove existing files in the build res folder
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/res ${CMAKE_BINARY_DIR}/res  # Copy the updated resources
+        COMMENT "Copying resource files to the build directory and removing outdated files"
 )
 
 target_link_libraries(GraphicsProgramming PRIVATE glfw3 opengl32 glew32)
-
 add_dependencies(GraphicsProgramming copy_resources)
 
