@@ -14,7 +14,7 @@ void display(GLFWwindow* window){
     glClearColor(0.3,0.3,0.3,1.0);
 }
 
-// GL Error Handling
+// GL Error Handlingg
 void printShaderLog(GLuint shader){
     int len;
     int chrsWrittn;
