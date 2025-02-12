@@ -8,22 +8,17 @@
 GLuint renderingProgram;
 GLuint vao[numVAOs];
 
-void init (GLFWwindow* window){}
-void display(GLFWwindow* window){
-    glClear(GL_COLOR_BUFFER_BIT);
-    glClearColor(0.3,0.3,0.3,1.0);
-}
-
 // GL Error Handlingg
 void printShaderLog(GLuint shader){
     int len;
-    int chrsWrittn;
+    int charsWrttn;
     char* log;
 
-    glGetShaderiv(shader, GL_INFO_LOG_LENGTH, &len);
-    if (len > 0) {
-        log =(char*)malloc(len);
-        glGetShaderInfoLog(shader, len, &chrsWrittn, log);
+    glGetShaderiv(shader,GL_INFO_LOG_LENGTH, &len);
+
+    if (len > 0){
+        log = (char*)malloc(len);
+        glGetShaderInfoLog(shader, len, &charsWrttn, log);
         std::cout << "Shader Info Log: " << log << std::endl;
         free(log);
     }
@@ -54,11 +49,102 @@ bool checkOpenGLError() {
     return foundErr;
 }
 
+std::string readShaderSource(const char* filePath){
+    std::string content;
+    std::ifstream fileStream(filePath, std::ios::in);
+    std::string line;
+
+    while(!fileStream.eof()){
+        std::getline(fileStream, line);
+        content.append(line + "\n");
+    }
+    fileStream.close();
+    return content;
+}
+
+GLuint createShaderProgram(){
+    GLint vertCompiled;
+    GLint fragCompiled;
+    GLint linked;
+
+    std::string vertShaderString = readShaderSource("res/shaders/basic_point/vertShader.glsl");
+    std::string fragShaderString = readShaderSource("res/shaders/basic_point/fragShader.glsl");
+
+    const char* vshaderSource = vertShaderString.c_str();
+    const char* fshaderSource = fragShaderString.c_str();
+
+    GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
+    GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+    glShaderSource(vShader, 1, &vshaderSource, nullptr);
+    glShaderSource(fShader, 1, &fshaderSource, nullptr);
+
+    //Catch Errors during compilation
+    glCompileShader(vShader);
+    checkOpenGLError();
+
+    glGetShaderiv(vShader, GL_COMPILE_STATUS, &vertCompiled);
+    if (vertCompiled != 1){
+        std::cout << "Vertex Compilation failed" << std::endl;
+        printShaderLog(vShader);
+    }
+
+    glCompileShader(fShader);
+    checkOpenGLError();
+    glGetShaderiv(fShader, GL_COMPILE_STATUS, &fragCompiled);
+    if (fragCompiled != 1){
+        std::cout << "Fragment Compilation failed" << std::endl;
+        printShaderLog(fShader);
+    }
+
+    //Catch errors while linking shaders
+    GLuint vfProgram = glCreateProgram();
+
+    glAttachShader(vfProgram, vShader);
+    glAttachShader(vfProgram, fShader);
+    glLinkProgram(vfProgram);
+    checkOpenGLError();
+
+    glGetProgramiv(vfProgram, GL_LINK_STATUS, &linked);
+    if (linked != 1){
+        std::cout << "Shader Program Link Step Failed" << std::endl;
+        printProgramLog(vfProgram);
+    }
+    return vfProgram;
+}
+
+void init (GLFWwindow* window){
+    renderingProgram = createShaderProgram();
+    glGenVertexArrays(numVAOs, vao);
+    glBindVertexArray(vao[0]);
+}
+
+float x = 1.0f;
+float inc = 0.01;
+
+void display(GLFWwindow* window){
+    glClear(GL_COLOR_BUFFER_BIT);
+    glClearColor(0.3,0.3,0.3,1.0);
+    glUseProgram(renderingProgram);
+    x += inc;
+
+    if (x > 1.0f) {
+        inc = -0.01f;
+    }
+    if (x < -1.0f) {
+        inc = 0.01f;
+    }
+
+    int offsetLoc = glGetUniformLocation(renderingProgram, "offset");
+    glProgramUniform1f(renderingProgram, offsetLoc, x);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+}
+
 int main () {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    GLFWwindow* window = glfwCreateWindow(600,600,"Test Graphics", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800,800,"Test Graphics", nullptr, nullptr);
     glfwMakeContextCurrent(window);
 
     if (glewInit() != GLEW_OK){
