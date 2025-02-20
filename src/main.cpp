@@ -122,7 +122,7 @@ void init (GLFWwindow* window){
 float x = 1.0f;
 float inc = 0.01;
 
-// Update to rotate Triangle
+// Update to rotate Trianglee
 void display(GLFWwindow* window){
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.3,0.3,0.3,1.0);
