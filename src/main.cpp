@@ -124,20 +124,29 @@ float inc = 0.01;
 
 float scale = 1.0f;
 float scaleInc = 0.01;
+std::string direction = "left";
 
-// Update to rotate Triangle
+// Update to scale and translate Triangle
 void display(GLFWwindow* window){
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.3,0.3,0.3,1.0);
     glUseProgram(renderingProgram);
     scale += scaleInc;
 
-
     if (scale > 1.0f) {
         scaleInc = -0.005f;
     }
-    if (scale < 0.0f) {
+
+    if (scale < 0.0f && direction == "left") {
         scaleInc = 0.005f;
+        x = -1.0f;
+        direction = "right";
+    }
+
+    else if (scale < 0.0f && direction == "right") {
+        scaleInc = 0.005f;
+        x = 1.0f;
+        direction = "left";
     }
 
 
