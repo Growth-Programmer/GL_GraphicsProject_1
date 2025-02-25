@@ -8,7 +8,7 @@
 GLuint renderingProgram;
 GLuint vao[numVAOs];
 
-// GL Error Handlingg
+// GL Error Handling
 void printShaderLog(GLuint shader){
     int len;
     int charsWrttn;
@@ -122,22 +122,31 @@ void init (GLFWwindow* window){
 float x = 1.0f;
 float inc = 0.01;
 
-// Update to rotate Trianglee
+float scale = 1.0f;
+float scaleInc = 0.01;
+
+// Update to rotate Triangle
 void display(GLFWwindow* window){
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.3,0.3,0.3,1.0);
     glUseProgram(renderingProgram);
-    x += inc;
+    scale += scaleInc;
 
-    if (x > 1.0f) {
-        inc = -0.01f;
+
+    if (scale > 1.0f) {
+        scaleInc = -0.005f;
     }
-    if (x < -1.0f) {
-        inc = 0.01f;
+    if (scale < 0.0f) {
+        scaleInc = 0.005f;
     }
+
 
     int offsetLoc = glGetUniformLocation(renderingProgram, "offset");
     glProgramUniform1f(renderingProgram, offsetLoc, x);
+
+    int sizeScale = glGetUniformLocation(renderingProgram, "size");
+    glProgramUniform1f(renderingProgram, sizeScale, scale);
+
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
