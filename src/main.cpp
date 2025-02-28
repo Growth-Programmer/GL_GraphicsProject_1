@@ -127,7 +127,7 @@ float scaleInc = 0.01;
 std::string direction = "left";
 
 // Update to scale and translate Triangle
-void display(GLFWwindow* window){
+double display(GLFWwindow* window, double currentTime){
     glClear(GL_COLOR_BUFFER_BIT);
     glClearColor(0.3,0.3,0.3,1.0);
     glUseProgram(renderingProgram);
@@ -157,6 +157,8 @@ void display(GLFWwindow* window){
     glProgramUniform1f(renderingProgram, sizeScale, scale);
 
     glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    return currentTime;
 }
 
 int main () {
@@ -172,9 +174,13 @@ int main () {
 
     init(window);
     glfwSwapInterval(1);
+    double startTime = glfwGetTime();
 
     while(!glfwWindowShouldClose(window)){
-        display(window);
+        double displayTime = display(window, glfwGetTime());
+        double elapsedTime = displayTime - startTime;
+        startTime = displayTime;
+        std::cout << elapsedTime << std::endl;
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
